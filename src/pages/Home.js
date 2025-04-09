@@ -280,28 +280,30 @@ const Home = () => {
       <section className="testimonials-section">
         <div className="overlay"></div>
         <div className="container">
-          <div className="section-header">
-            <h2>What Our Clients Say</h2>
-            <div className="separator">
-              <span className="separator-line"></span>
-              <span className="separator-line"></span>
+          <div className="testimonials-content">
+            <div className="section-header">
+              <h2>What Our Clients Say</h2>
+              <div className="separator">
+                <span className="separator-line"></span>
+                <span className="separator-line"></span>
+              </div>
             </div>
-          </div>
-          
-          <div className="testimonials-slider">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="testimonial-card">
-                <div className="testimonial-icon">
-                  <FontAwesomeIcon icon={faUserCircle} />
-                </div>
-                <div className="testimonial-content">
-                  <p>{testimonial.text}</p>
-                  <div className="testimonial-author">
-                    <strong>{testimonial.name}</strong>
+            
+            <div className="testimonials-slider">
+              {testimonials.map((testimonial) => (
+                <div key={testimonial.id} className="testimonial-card">
+                  <div className="testimonial-icon">
+                    <FontAwesomeIcon icon={faUserCircle} />
+                  </div>
+                  <div className="testimonial-content">
+                    <p>{testimonial.text}</p>
+                    <div className="testimonial-author">
+                      <strong>{testimonial.name}</strong>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -415,7 +417,15 @@ const Home = () => {
           margin: 0 auto;
           padding: 0 1rem;
         }
-
+        .center-content{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4rem;
+          max-width: 1200px;
+          margin: 0 auto;
+          text-align: center;
+        }
         .section-header {
           text-align: center;
           max-width: 800px;
@@ -427,13 +437,27 @@ const Home = () => {
           font-weight: 700;
           color: #212529;
           margin-bottom: 1rem;
-          text-transform: uppercase;
+          position: relative;
+          display: inline-block;
+        }
+        
+        .section-title::after {
+          content: "";
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 80px;
+          height: 3px;
+          background: linear-gradient(90deg, #28a745, #20c997);
+          border-radius: 3px;
         }
 
         .section-subtitle {
           font-size: 1.1rem;
           color: #6c757d;
-          margin-bottom: 2rem;
+          margin-bottom: 1.5rem;
+          line-height: 1.6;
         }
 
         .section-divider {
@@ -441,23 +465,47 @@ const Home = () => {
           align-items: center;
           justify-content: center;
           gap: 1rem;
-          margin: 2rem 0;
+          margin: 0 auto;
+          max-width: 300px;
         }
 
         .divider-line {
-          width: 50px;
-          height: 2px;
-          background-color: #28a745;
+          flex: 1;
+          height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(40, 167, 69, 0.5), transparent);
         }
 
         .divider-icon {
-          color: #28a745;
-          font-size: 1.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          background: linear-gradient(135deg, #28a745, #20c997);
+          color: white;
+          border-radius: 50%;
+          font-size: 1rem;
+          box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
         }
 
         .services-section {
           padding: 6rem 0;
           background-color: #f8f9fa;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .services-section::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url('assets/images/background/pattern.png');
+          background-size: 200px;
+          opacity: 0.03;
+          pointer-events: none;
         }
 
         .services-content {
@@ -465,14 +513,25 @@ const Home = () => {
           flex-direction: column;
           align-items: center;
           gap: 4rem;
+          max-width: 1200px;
+          margin: 0 auto;
+          text-align: center;
         }
-
+        .testimonials-content{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4rem;
+          max-width: 1200px;
+          margin: 0 auto;
+          text-align: center;
+        }
         .services-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: 2rem;
+          gap: 2.5rem;
           width: 100%;
-          max-width: 1000px;
+          max-width: 1200px;
           margin: 0 auto;
         }
 
@@ -515,7 +574,7 @@ const Home = () => {
           left: 0;
           width: 100%;
           height: 100%;
-          background: rgba(0, 0, 0, 0.5);
+          background: rgba(40, 167, 69, 0.8);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -537,6 +596,7 @@ const Home = () => {
           border: 2px solid white;
           border-radius: 2rem;
           transition: all 0.3s ease;
+          font-weight: 600;
         }
 
         .service-link:hover {
@@ -549,19 +609,29 @@ const Home = () => {
           flex: 1;
           display: flex;
           flex-direction: column;
+          align-items: center;
+          text-align: center;
         }
 
         .service-icon {
-          width: 50px;
-          height: 50px;
-          background: #28a745;
+          width: 60px;
+          height: 60px;
+          background: linear-gradient(135deg, #28a745, #20c997);
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
           color: white;
           font-size: 1.5rem;
-          margin-bottom: 1rem;
+          margin: -30px auto 1rem;
+          box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+          position: relative;
+          z-index: 1;
+          transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+          transform: rotate(360deg);
         }
 
         .service-content h3 {
@@ -582,6 +652,10 @@ const Home = () => {
           padding: 0;
           margin: 0;
           margin-top: auto;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
         }
 
         .service-features li {
@@ -589,7 +663,7 @@ const Home = () => {
           align-items: center;
           gap: 0.5rem;
           color: #495057;
-          margin-bottom: 0.5rem;
+          justify-content: center;
         }
 
         .service-features li svg {
@@ -839,7 +913,7 @@ const Home = () => {
 
           .services-grid {
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            gap: 2rem;
           }
         }
 
@@ -866,7 +940,6 @@ const Home = () => {
 
           .services-grid {
             grid-template-columns: 1fr;
-            gap: 1.5rem;
             max-width: 500px;
           }
 

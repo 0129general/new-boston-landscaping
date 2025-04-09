@@ -244,7 +244,7 @@ const Reviews = () => {
               </div>
             </form>
           </div>
-        </div>
+    </div>
       </section>
 
       <style jsx>{`

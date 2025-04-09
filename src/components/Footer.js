@@ -120,18 +120,20 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <div className="container">
-          <p>
-            &copy; {currentYear}{" "}
-            <a 
-              href="http://ratesoffice.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="copyright-link"
-            >
-              Rates Office
-            </a>
-            . All Rights Reserved.
-          </p>
+          <div className="center-content">
+            <p>
+              &copy; {currentYear}{" "}
+              <a 
+                href="http://ratesoffice.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="copyright-link"
+              >
+                Rates Office
+              </a>
+              . All Rights Reserved.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -429,12 +431,16 @@ const Footer = () => {
           background-color: #1a1d20;
           padding: 1.5rem 0;
           text-align: center;
+          width: 100%;
+          display: flex;
+          justify-content: center;
         }
 
         .footer-bottom p {
           margin: 0;
           color: #adb5bd;
           font-size: 0.875rem;
+          text-align: center;
         }
 
         .copyright-link {
@@ -512,6 +518,15 @@ const Footer = () => {
             text-align: center;
           }
           
+          .center-content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+          }
           .social-icons {
             justify-content: center;
           }
